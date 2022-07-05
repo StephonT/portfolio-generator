@@ -19,9 +19,7 @@
   Use inquirer from your command line to answer questions about your project.
   <br>
   Click the screencastify link to see its functionality: <a href="https://drive.google.com/file/d/1JiYMvvt1fyUzgk3ykmeZnA3I274dh8ZS/view">Screencastify</a>
-  <br>
-  <br>
-  <iframe src="https://drive.google.com/file/d/1JiYMvvt1fyUzgk3ykmeZnA3I274dh8ZS/preview" width="640" height="480"></iframe>
+ 
 
   ## License
   This project is license under MIT
