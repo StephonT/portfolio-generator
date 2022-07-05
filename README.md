@@ -17,7 +17,7 @@
 
   ## Usage
   Use inquirer from your command line to answer questions about your project.
- 
+
 
   ## License
   This project is license under MIT
