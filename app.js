@@ -1,11 +1,10 @@
 const inquirer = require('inquirer');
 
-
-// Defining fs so fs.writeFile can be used
-const fs = require('fs');
-
 // Used require so that generatePage function in page-template.js can be used in this module
 const generatePage = require('./src/page-template.js');
+
+// Exporting the object from generate-site.js, allowing to use generateSite.writeFile() and generateSite.copyFile()
+const { writeFile, copyFile } = require('./utils/generate-site.js');
 
 
 
@@ -139,21 +138,21 @@ if (!portfolioData.projects) {
     });
 };
   
-  promptUser()
-  .then(promptProject)
-  .then(portfolioData => {
-    const pageHTML = generatePage(portfolioData);
-    
-  
-
-// generatePage function was here. Moved it to its own file to Modularize code. With that being said, I had to add module.export at bottom of page-template file and require at the top of this file to use generatePage function. Now I'm able to use functions from one module inside another!
-
-  
-  // function to create file
-  fs.writeFile('index.html', pageHTML, err => {
-    if (err) throw new Error (err);
-  
-    console.log('Portfolio complete! Check out index.html to see the output!');
-  });
-
+promptUser()
+.then(promptProject)
+.then(portfolioData => {
+  return generatePage(portfolioData);
+})
+.then(pageHTML => {
+  return writeFile(pageHTML);
+})
+.then(writeFileResponse => {
+  console.log(writeFileResponse);
+  return copyFile();
+})
+.then(copyFileResponse => {
+  console.log(copyFileResponse);
+})
+.catch(err => {
+  console.log(err);
 });

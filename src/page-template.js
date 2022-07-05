@@ -56,6 +56,8 @@ const generateProjects = projectsArr => {
   `;
 };
 
+
+//export function to generate entire page
 module.exports = templateData => {
   // destructure page data by section
   const { projects, about, ...header } = templateData;
@@ -86,8 +88,9 @@ module.exports = templateData => {
       </div>
     </header>
     <main class="container my-5">
+     ${generateAbout(about)}
       ${generateProjects(projects)}
-      ${generateAbout(about)}
+      
     </main>
     <footer class="container text-center py-3">
       <h3 class="text-dark">&copy; ${new Date().getFullYear()} by ${header.name}</h3>
